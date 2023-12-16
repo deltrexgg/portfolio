@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio-Test</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #211F1F;
+        }
+
+        div {
+            display: flex;
+        }
+
+        div input {
+            margin-right: 10px;
+            border-radius: 20px;
+            border: 1px solid #ccc;
+            padding: 8px;
+            outline: none;
+            font-family: "Courier New", Courier, monospace;
+            font-weight: bold;
+            font-size: medium;
+        }
+
+        .btn {
+            display: block;
+            margin: auto;
+            border-radius: 50%;
+            padding: 8px 12px;
+            border: none;
+            cursor: pointer;
+            background-image: url('search-icon.png'); /* Set the image as the background of the button */
+            background-size: contain; /* Ensure the image fits within the button */
+            background-repeat: no-repeat;
+            height: 40px;
+            width: 40px;
+            
+        }
+    </style>
+</head>
+<body onload="typeWriter()">
+    <div>
+        <input type="text" id="demo">
+        <button class="btn" onclick="Todashboard()"></button> 
+    </div>
+
+    <script>
+        var i = 0;
+        var txt = 'Hari Nandan';
+        var speed = 500;
+        function typeWriter() {
+            if (i < txt.length) {
+                document.getElementById("demo").value += txt.charAt(i);
+                i++;
+                setTimeout(typeWriter, speed);
+            }
+        }
+
+        function Todashboard(){
+          window.location.href = "dashboard.html";
+        }
+    </script>
+</body>
+</html>

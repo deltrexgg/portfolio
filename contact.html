@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <style>
+                .btn {
+            display: block;
+            border-radius: 50%;
+            padding: 8px 12px;
+            border: none;
+            cursor: pointer;
+            background-image: url('search-icon.png'); /* Set the image as the background of the button */
+            background-size: contain; /* Ensure the image fits within the button */
+            background-repeat: no-repeat;
+            height: 25px;
+            width: 25px;   
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* Apply underline on hover */
+        a:hover {
+            text-decoration: underline;
+        }
+
+        ul{
+            list-style: none;
+            background-color: rgb(255, 255, 255);
+            padding: 0;
+            padding-left: 10px;
+            padding-right: 10px;
+            border-radius: 10px;
+        }
+
+        .logo-container{
+            text-align: center;
+            padding-top: 10%;
+            
+        }
+
+        
+
+    </style>
+</head>
+<body style="margin: 0;">
+    <div style="width: 100%;">
+    <div style="background-color: #211F1F; width: 100%; height: 100px;display: flex;align-items: center;padding-left: 25px;">
+    <input type="text" id="searchbar" onkeyup="searchsuggestion()" style="margin: 0; border-radius: 20px; padding-left: 10px;width: 300px;height: 25px;" placeholder="search">&nbsp;
+    <button class="btn" onclick="searchcontent()"></button>&nbsp;
+    <ul id="suggestions"></ul>
+    </div>
+    
+
+    <div style="background-color: #211F1F; width: 100%; height: 15px;display: flex;align-items: center;padding-left: 25px;">
+        <a href="dashboard.html" style="color: rgb(255, 255, 255);">All</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="images.html" style="color: white">Image</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="contact.html" style="color: aquamarine">Contact</a>
+        </div>
+</div>
+<div id="logo" class="logo-container">
+    <a href=""><img src="email.png"></a><br><br>
+    <a href=""><img src="p.png"></a><br><br>
+    <a href=""><img src="linkedin.png"></a><br><br>
+    <a href=""><img src="github.png"></a><br><br>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
