@@ -1,4 +1,4 @@
-const filelist = ['images','contact'];
+const filelist = ['images','contact','cloudbag'];
 
 function searchcontent(){
     var searchItem = document.getElementById('searchbar').value.toLowerCase();
