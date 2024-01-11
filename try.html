@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Floating Box under Input Text Box</title>
+    <style>
+        .container {
+    position: relative;
+    width: 300px;
+    margin: 50px auto;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.suggestions {
+    position: absolute;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-top: none;
+    display: none;
+    max-height: 150px;
+    overflow-y: auto;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.suggestions.visible {
+    display: block;
+}
+
+    </style>
+     <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
+</head>
+<body>
+    <div class="container">
+        <input type="text" id="searchInput" placeholder="Type something...">
+        <div class="suggestions" id="suggestionsList"></div>
+    </div>
+    <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="medium" data-theme="dark" data-type="VERTICAL" data-vanity="harinandan0555" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://in.linkedin.com/in/harinandan0555?trk=profile-badge">Hari Nandan</a></div>
+
+    <script>
+        const searchInput = document.getElementById('searchInput');
+const suggestionsList = document.getElementById('suggestionsList');
+
+searchInput.addEventListener('input', function() {
+    const inputValue = this.value.toLowerCase();
+    // Simulated suggestions based on input value
+    const suggestions = ['Apple', 'Banana', 'Orange', 'Grapes', 'Lemon', 'Lime', 'Peach'];
+    const filteredSuggestions = suggestions.filter(suggestion =>
+        suggestion.toLowerCase().startsWith(inputValue)
+    );
+
+    renderSuggestions(filteredSuggestions);
+});
+
+function renderSuggestions(suggestions) {
+    suggestionsList.innerHTML = '';
+    if (suggestions.length > 0) {
+        suggestions.forEach(suggestion => {
+            const suggestionElement = document.createElement('div');
+            suggestionElement.textContent = suggestion;
+            suggestionsList.appendChild(suggestionElement);
+        });
+        suggestionsList.classList.add('visible');
+    } else {
+        suggestionsList.classList.remove('visible');
+    }
+}
+
+    </script> 
+    <script>
+        fetch("https://api.quotable.io/random")
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(data) {
+    console.log(data.author);
+    console.log(data.content);
+  });
+    </script>
+</body>
+</html>

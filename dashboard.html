@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+    <link href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" rel="stylesheet"/>
+    <style>
+        .btn {
+            display: block;
+            border-radius: 50%;
+            padding: 8px 12px;
+            border: none;
+            cursor: pointer;
+            background-image: url('search-icon.png'); /* Set the image as the background of the button */
+            background-size: contain; /* Ensure the image fits within the button */
+            background-repeat: no-repeat;
+            height: 25px;
+            width: 25px;   
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* Apply underline on hover */
+        a:hover {
+            text-decoration: underline;
+        }
+
+        ul{
+            list-style: none;
+            background-color: rgb(255, 255, 255);
+            padding: 0;
+            padding-left: 10px;
+            padding-right: 10px;
+            border-radius: 10px;
+        }
+        
+        @keyframes fade-in{
+            0% {opacity: 0};
+            100% {opacity: 1;};
+        }
+
+        .leftcontainer{
+            animation: fade-in 2.5s;
+            border-radius: 10px;
+        }
+
+        @keyframes slide-in{
+            0%{
+                transform: skewX(0deg) translateX(500px);
+            }
+            100%{
+             transform: skewX(0deg);   
+            }
+        }
+
+        .rightcontainer{
+            animation: slide-in 2s;
+        }
+    </style>
+</head>
+<body style="margin: 0;">
+    <div style="width: 100%;">
+    <div style="background-color: #211F1F; width: 100%; height: 100px;display: flex;align-items: center;padding-left: 25px;">
+    <input type="text" id="searchbar" onkeyup="searchsuggestion()" style="margin: 0; border-radius: 20px; padding-left: 10px;width: 300px;height: 25px;" placeholder="search">&nbsp;
+    <button class="btn" onclick="searchcontent()"></button>&nbsp;
+    <ul id="suggestions">
+    </div>
+    
+
+    <div style="background-color: #211F1F; width: 100%; height: 15px;display: flex;align-items: center;padding-left: 25px;">
+        <a href="dashboard.html" style="color: aquamarine;">All</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="images.html" style="color: white">Image</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="contact.html" style="color: white">Contact</a>
+        </div>
+</div>
+    <div class="leftcontainer" style="float: left; background-color: rgb(255, 255, 255); height:100%; width: 70%;padding-top: 2%;align-items: center;padding-left: 2%;">
+<div style="padding-left: 3%;padding-top: 3%;padding-right: 20%;background-color: rgb(224, 229, 229);border-radius: 15px;margin: auto;">
+    <a href=""><h2 style="font-family: Arial, Helvetica, sans-serif;color: black;">Cloudbag - Learning App</h2></a>
+<p style="font-family: Courier New, Courier, monospace;font-weight: bold;">
+Introducing Cloudbag: Your ultimate study partner. This web app redefines studying.
+Cloud storage lightens your load,quick access for reviews. AI support boosts learning,
+while smart note-taking simplifies. Embrace Cloudbag for effortless, efficient education.
+</p>
+<a href=""><h2 style="font-family: Arial, Helvetica, sans-serif;color: black;">Mounam - Short Film</h2></a>
+<p style="font-family: Courier New, Courier, monospace;font-weight: bold;">
+Mounam is short film where a youngster face social problems in the current era of life. Later he 
+has realization about life and sort things back together. 
+</p>
+<a href=""><h2 style="font-family: Arial, Helvetica, sans-serif;color: black;">Text to Speech - Java Swing App</h2></a>
+<p style="font-family: Courier New, Courier, monospace;font-weight: bold;">
+The Text-to-Speech Converter App developed in Java offers a seamless way to convert written text
+ into audible speech. It serves as a user-friendly tool that accepts user input in the form of 
+ textual content and transforms it into spoken words.
+</p>
+<br>
+<i>This website is under development - Explore the rest !</i>
+</div>
+    </div>
+    <div class="rightcontainer" style="float: left; background-color: rgb(255, 255, 255);  width: 400px; display: flex; align-items: center;padding-top: 3%;padding-left: 0%;align-items: center;">
+        <div style="background-color:rgb(248, 243, 243);width:70%;border-radius:10%;margin: auto;">
+            <div>
+                <img src="myimage.jpg" style="height: 200px;width: 100%;border-top-right-radius: 10%;border-top-left-radius: 10%;">
+            </div>
+            <div style="padding-left:5% ;">
+                <h3>HARI NANDAN</h3>
+                <p style="font-family: Arial, Helvetica, sans-serif;padding-right: 2px;font-family: Courier New, Courier, monospace;font-weight: bold;">
+                    A passionate explorer diving headfirst into the realm of web development with an insatiable 
+                    thirst for knowledge and an unwavering love for technology. Embracing the challenges as stepping
+                     stones, I'm on a quest to carve my path in the captivating world of web technologies.
+                </p>
+            </div>
+            <div id="osm-map" style="height: 200px;border-bottom-right-radius: 10%;border-bottom-left-radius: 10%;">
+                
+            </div>
+        </div>
+    </div>
+<script src="app.js"></script>
+<script>
+    var element = document.getElementById('osm-map');
+var map = L.map(element);
+L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
+var target = L.latLng('11.258871', '75.780539');
+map.setView(target, 9);
+L.marker(target).addTo(map);
+</script>
+
+</body>
+</html>
