@@ -7,6 +7,9 @@
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
     <link href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" rel="stylesheet"/>
     <style>
+        body{
+            margin:0;
+        }
         .btn {
             display: block;
             border-radius: 50%;
@@ -43,10 +46,6 @@
             100% {opacity: 1;};
         }
 
-        .leftcontainer{
-            animation: fade-in 2.5s;
-            border-radius: 10px;
-        }
 
         @keyframes slide-in{
             0%{
@@ -57,70 +56,167 @@
             }
         }
 
-        .rightcontainer{
+        .info-box{
+            display: flex;
+            justify-content: center;
+            padding-top: 2%;
             animation: slide-in 2s;
         }
+        img{
+            width:100%;
+            height: 200px;
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+        }
+
+        .image-box{      
+            background-color: aqua;
+            width:20%;
+            height: 200px;
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+        }
+        .content-box{
+            background-color:rgb(225, 220, 213);
+            width: 20%;
+            height: 200px;
+            overflow: hidden;           
+        }
+        .map-box{
+            width:20%;
+            height: 200px;
+            border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+        .project-container{
+            justify-content: center;
+            padding: 5%;
+            padding-right: 20%;
+        }
+        .project-element{
+            
+        }
+        p{
+            font-family: Courier New, Courier, monospace;
+            font-weight: bold;
+        }
+        h2{
+        font-family: Arial, Helvetica, sans-serif;
+        }
+        .bottom-box{
+        width:100%;
+        background-color: #211F1F;
+        height: 100px;
+        }
+        .mobile-content{
+            display: none;
+        }
+        .map-box-mobile{
+            display: none;
+        }
+        @media screen and (max-width:600px){
+            .info-box{
+                display: block;
+            }
+            
+        .mobile-content{
+            display:flex;
+            justify-content: center;
+            align-items: center;
+        }
+        img{
+            width:100%;
+            height: 150px;
+            border-top-left-radius: 15px;
+
+        }
+        .image-box-mobile{
+            background-color: rgb(0, 0, 0);
+            width:45%;
+            height: 150px;
+            border-top-left-radius: 15px;
+        }
+        .content-box-mobile{
+            background-color:rgb(225, 220, 213);
+            width: 45%;
+            height: 150px;
+            font-size: x-small;
+            border-top-right-radius: 15px;
+            font-family: Courier New, Courier, monospace;
+            font-weight: bold;
+        }
+
+        .map-box{
+            width:90%;
+            height: 150px;
+            border-top-right-radius: 0px;
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+            left: 5%; 
+        }
+        .project-container{
+            justify-content: center;
+            padding: 5%;
+        }
+            .image-box{
+                display: none;
+        }
+            .content-box{
+                display: none; 
+        }
+
+        }
+
     </style>
 </head>
 <body style="margin: 0;">
-    <div style="width: 100%;">
-    <div style="background-color: #211F1F; width: 100%; height: 100px;display: flex;align-items: center;padding-left: 25px;">
-    <input type="text" id="searchbar" onkeyup="searchsuggestion()" style="margin: 0; border-radius: 20px; padding-left: 10px;width: 300px;height: 25px;" placeholder="search">&nbsp;
+    <div class="top-bar" style="width: 100%;">
+    <div style="background-color: #211F1F; width: 100%; height: 100px;display: flex;align-items: center;padding-left: 0px;">
+    &nbsp;&nbsp;&nbsp;<input type="text" id="searchbar" onkeyup="searchsuggestion()" style="margin: 0; border-radius: 20px; padding-left: 10px;width: 300px;height: 25px;" placeholder="search">&nbsp;
     <button class="btn" onclick="searchcontent()"></button>&nbsp;
     <ul id="suggestions">
     </div>
     
 
-    <div style="background-color: #211F1F; width: 100%; height: 15px;display: flex;align-items: center;padding-left: 25px;">
+    <div style="background-color: #211F1F; width: 100%; height: 15px;display: flex;align-items: center;padding-left: 0px;">
+        &nbsp;&nbsp;&nbsp;
         <a href="dashboard.html" style="color: aquamarine;">All</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <a href="images.html" style="color: white">Image</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <a href="contact.html" style="color: white">Contact</a>
         </div>
 </div>
-    <div class="leftcontainer" style="float: left; background-color: rgb(255, 255, 255); height:100%; width: 70%;padding-top: 2%;align-items: center;padding-left: 2%;">
-<div style="padding-left: 3%;padding-top: 3%;padding-right: 20%;background-color: rgb(224, 229, 229);border-radius: 15px;margin: auto;">
-    <a href="cloudbag.html"><h2 style="font-family: Arial, Helvetica, sans-serif;color: black;">Cloudbag - Learning App</h2></a>
-<p style="font-family: Courier New, Courier, monospace;font-weight: bold;">
-Introducing Cloudbag: Your ultimate study partner. This web app redefines studying.
-Cloud storage lightens your load,quick access for reviews. AI support boosts learning,
-while smart note-taking simplifies. Embrace Cloudbag for effortless, efficient education.
-</p>
-<a href=""><h2 style="font-family: Arial, Helvetica, sans-serif;color: black;">Mounam - Short Film</h2></a>
-<p style="font-family: Courier New, Courier, monospace;font-weight: bold;">
-Mounam is short film where a youngster face social problems in the current era of life. Later he 
-has realization about life and sort things back together. 
-</p>
-<a href=""><h2 style="font-family: Arial, Helvetica, sans-serif;color: black;">Text to Speech - Java Swing App</h2></a>
-<p style="font-family: Courier New, Courier, monospace;font-weight: bold;">
-The Text-to-Speech Converter App developed in Java offers a seamless way to convert written text
- into audible speech. It serves as a user-friendly tool that accepts user input in the form of 
- textual content and transforms it into spoken words.
-</p>
-<br>
-<i>This website is under development - Explore the rest !</i>
-</div>
+<div class="info-box">
+    <div class="image-box"><img src="myimage.jpg"></div>
+    <div class="content-box">     
+        <p>Hari Nandan, a budding web developer, is passionately exploring coding and design. Committed to mastering web development, he embraces creativity and continuous learning.
+        </p>
     </div>
-    <div class="rightcontainer" style="float: left; background-color: rgb(255, 255, 255);  width: 400px; display: flex; align-items: center;padding-top: 3%;padding-left: 0%;align-items: center;">
-        <div style="background-color:rgb(248, 243, 243);width:70%;border-radius:10%;margin: auto;">
-            <div>
-                <img src="myimage.jpg" style="height: 200px;width: 100%;border-top-right-radius: 10%;border-top-left-radius: 10%;">
-            </div>
-            <div style="padding-left:5% ;">
-                <h3>HARI NANDAN</h3>
-                <p style="font-family: Arial, Helvetica, sans-serif;padding-right: 2px;font-family: Courier New, Courier, monospace;font-weight: bold;">
-                    A passionate explorer diving headfirst into the realm of web development with an insatiable 
-                    thirst for knowledge and an unwavering love for technology. Embracing the challenges as stepping
-                     stones, I'm on a quest to carve my path in the captivating world of web technologies.
-                </p>
-            </div>
-            <div id="osm-map" style="height: 200px;border-bottom-right-radius: 10%;border-bottom-left-radius: 10%;">
-                
-            </div>
+    <div class="mobile-content">
+        <div class="image-box-mobile"><img src="myimage.jpg"></div>
+        <div class="content-box-mobile">     
+            Hari Nandan, a budding web developer, is passionately exploring coding and design. Committed to mastering web development, he embraces creativity and continuous learning.
         </div>
     </div>
+    <div class="map-box" id="osm-map"></div>
+</div>
+<section class="project-container">
+    <div class="project-element">
+        <h2><a href="cloudbag.html">Cloudbag - Productivity App</a></h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </p>
+    </div>
+    <div class="project-element">
+        <h2>Mounam - Short Film</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </p>
+    </div>
+</section>
+<div class="bottom-box"></div>
+
 <script src="app.js"></script>
 <script>
-    var element = document.getElementById('osm-map');
+    //<div id="osm-map" style="height: 200px;border-bottom-right-radius: 10%;border-bottom-left-radius: 10%;"></div>
+var element = document.getElementById('osm-map');
 var map = L.map(element);
 L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -129,6 +225,5 @@ var target = L.latLng('11.258871', '75.780539');
 map.setView(target, 9);
 L.marker(target).addTo(map);
 </script>
-
 </body>
 </html>

@@ -40,19 +40,20 @@
             padding-top: 30px;
             position: relative;
             text-align: center;
-            height: 100vh;
+            height: 100%;
             
             
             
         }
         @keyframes slide-in{
             0%{
-                transform: skewX(0deg) translateX(500px);
+                transform: skewX(0deg) translateX(-500px);
             }
             100%{
              transform: skewX(0deg);   
             }
         }
+
 
         .logo-box{
             padding-top: 20px;  
@@ -81,14 +82,15 @@
 </head>
 <body style="margin: 0;">
     <div style="width: 100%;">
-    <div style="background-color: #211F1F; width: 100%; height: 100px;display: flex;align-items: center;padding-left: 25px;">
-    <input type="text" id="searchbar" onkeyup="searchsuggestion()" style="margin: 0; border-radius: 20px; padding-left: 10px;width: 300px;height: 25px;" placeholder="search">&nbsp;
+    <div style="background-color: #211F1F; width: 100%; height: 100px;display: flex;align-items: center;">
+        &nbsp;&nbsp;&nbsp;<input type="text" id="searchbar" onkeyup="searchsuggestion()" style="margin: 0; border-radius: 20px; padding-left: 10px;width: 300px;height: 25px;" placeholder="search">&nbsp;
     <button class="btn" onclick="searchcontent()"></button>&nbsp;
     <ul id="suggestions"></ul>
     </div>
     
 
-    <div style="background-color: #211F1F; width: 100%; height: 15px;display: flex;align-items: center;padding-left: 25px;">
+    <div style="background-color: #211F1F; width: 100%; height: 15px;display: flex;align-items: center;">
+        &nbsp;&nbsp;&nbsp;
         <a href="dashboard.html" style="color: rgb(255, 255, 255);">All</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <a href="images.html" style="color: white">Image</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <a href="contact.html" style="color: aquamarine">Contact</a>
