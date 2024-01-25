@@ -70,7 +70,7 @@
         }
 
         .image-box{      
-            background-color: aqua;
+            background-color: rgb(255, 255, 255);
             width:20%;
             height: 200px;
             border-top-left-radius: 15px;
@@ -80,7 +80,8 @@
             background-color:rgb(225, 220, 213);
             width: 20%;
             height: 200px;
-            overflow: hidden;           
+            overflow: hidden; 
+            padding-left: 1%;          
         }
         .map-box{
             width:20%;
@@ -94,11 +95,14 @@
             padding-right: 20%;
         }
         .project-element{
-            
+            border-radius: 15px;
+            background-color:azure ;
+            padding: 2%;
         }
         p{
             font-family: Courier New, Courier, monospace;
             font-weight: bold;
+            padding-left: 3px;
         }
         h2{
         font-family: Arial, Helvetica, sans-serif;
@@ -140,7 +144,7 @@
             background-color:rgb(225, 220, 213);
             width: 45%;
             height: 150px;
-            font-size: x-small;
+            font-size: 12px;
             border-top-right-radius: 15px;
             font-family: Courier New, Courier, monospace;
             font-weight: bold;
@@ -188,13 +192,13 @@
 <div class="info-box">
     <div class="image-box"><img src="myimage.jpg"></div>
     <div class="content-box">     
-        <p>Hari Nandan, a budding web developer, is passionately exploring coding and design. Committed to mastering web development, he embraces creativity and continuous learning.
+        <p><span style="font-family: Arial, Helvetica, sans-serif;">Hari Nandan</span><br>I am budding web developer, passionately exploring coding and design. Committed to mastering web development, embraces creativity and continuous learning.
         </p>
     </div>
     <div class="mobile-content">
         <div class="image-box-mobile"><img src="myimage.jpg"></div>
         <div class="content-box-mobile">     
-            Hari Nandan, a budding web developer, is passionately exploring coding and design. Committed to mastering web development, he embraces creativity and continuous learning.
+            <span style="font-family: Arial, Helvetica, sans-serif;">Hari Nandan</span><br>I am budding web developer, passionately exploring coding and design. Committed to mastering web development,  embraces creativity and continuous learning.
         </div>
     </div>
     <div class="map-box" id="osm-map"></div>
@@ -205,11 +209,13 @@
         <p>Introducing Cloudbag: Your ultimate study partner. This web app redefines studying. Cloud storage lightens your load, quick access for reviews. AI support boosts learning, while smart note-taking simplifies. Embrace Cloudbag for effortless, efficient education.
         </p>
     </div>
+    <br>
     <div class="project-element">
-        <h2>Mounam - Short Film</h2>
+        <h2><a href="">Mounam - Short Film</a></h2>
         <p>In the labyrinth of modern existence, a teenage boy grapples with social complexities within his family, only to emerge resilient. Through self-discovery and perseverance, he navigates the intricacies of life, reclaiming and reshaping his path.
         </p>
     </div>
+    <br>
 </section>
 <div class="bottom-box"></div>
 

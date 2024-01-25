@@ -77,6 +77,16 @@
             font-weight: bold;
 
         }
+        .bottom-box{
+            display: none;
+        }
+        @media screen and (max-width : 600px){
+            .bottom-box{
+                width:100%;
+                background-color: #211F1F;
+                height: 100px;
+        }
+        }
 
     </style>
 </head>
@@ -103,8 +113,8 @@
 <div class="logo-box" style="animation: slide-in 1.5s;"><img src="linkedin.png"><br>Hari Nandan <button class="cpybtn" onclick="visit(`https://www.linkedin.com/in/harinandan0555/`)">Visit</button></div><br>
 <div class="logo-box" style="animation: slide-in 2s;"><img src="github.png"><br>Hari Nandan(deltrexgg) <button class="cpybtn" onclick="visit(`https://github.com/deltrexgg`)">Visit</button></div>
 </div>
-
-
+<br>
+<div class="bottom-box"></div>
 <script src="app.js"></script>
 <script>
     function cpytxt(email){

@@ -59,6 +59,17 @@
             padding-right: 10px;
             border-radius: 10px;
         }
+        .bottom-box{
+        width:100%;
+        background-color: #211F1F;
+        height: 100px;
+        }
+
+        @media screen and (max-width : 600px){
+            .bottom-box{
+                display: none;
+            }
+        }
 
 </style>
 <body style="margin: 0;">
@@ -82,6 +93,7 @@
                 <img src="myimage.jpg"><br>
                 <img src="myimage.jpg">
             </div>
+            <div class="bottom-box"></div>
             <script src="app.js"></script>
 </body>
 </html>
