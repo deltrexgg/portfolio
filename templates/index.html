@@ -54,6 +54,9 @@ He enjoys solving real-world problems, designing efficient systems, and turning 
     Resume
 </button>
 
+<button class="menuButton" onclick="showContent('portfolio')">
+    How This Webpage is Build
+</button>
 
 <div id="content">
     {{template "work" .}}
@@ -63,7 +66,6 @@ He enjoys solving real-world problems, designing efficient systems, and turning 
 <div id="skills" style="display:none">
     {{template "skills" .}}
 </div>
-
 
 <div id="desk" style="display:none">
     {{template "desk" .}}
@@ -75,6 +77,10 @@ He enjoys solving real-world problems, designing efficient systems, and turning 
 
 <div id="work" style="display:none;">
     {{template "work" .}}
+</div>
+
+<div id="portfolio" style="display:none;">
+    {{template "portfolio" .}}
 </div>
 
 <script>

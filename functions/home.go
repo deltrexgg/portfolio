@@ -17,15 +17,19 @@ type Work struct {
 
 func HomePage(w http.ResponseWriter, r *http.Request) {
 
-	tmpl := template.Must(
-		template.ParseFiles(
-		"templates/index.html",
-		"components/desk.html",
-		"components/skills.html",
-		"components/work.html",
-		"components/contact.html",
-		"components/resume.html"),
-	)
+	tmpl, err := template.ParseFiles(
+        "templates/index.html",
+        "components/desk.html",
+        "components/skills.html",
+        "components/work.html",
+        "components/contact.html",
+        "components/resume.html",
+        "components/portfolio.html",
+    )
+    if err != nil {
+        http.Error(w, "Template Parsing Error: "+err.Error(), http.StatusInternalServerError)
+        return
+    }
 
 	data := map[string]interface{}{
 	"Title":      "Hari Nandan Portfolio",
@@ -102,5 +106,8 @@ func HomePage(w http.ResponseWriter, r *http.Request) {
 },
 }
 
-	tmpl.Execute(w, data)
+	err = tmpl.Execute(w, data)
+    if err != nil {
+        println("Template Execution Error:", err.Error()) 
+    }
 }
