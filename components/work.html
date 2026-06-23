@@ -1,0 +1,26 @@
+{{define "work"}}
+
+<h2>My Works</h2>
+
+{{range .MyWorks}}
+
+<div class="work-card">
+
+    <h3>{{.Title}}</h3>
+
+    <p><b>{{.Period}}</b> | <i>{{.Type}}</i></p>
+
+    <p>{{.Description}}</p>
+
+    <p><b>Impact / Usage:</b> {{.Impact}}</p>
+
+    <p><b>Tech Stack:</b> {{.Stack}}</p>
+
+    <p><b>Role:</b> {{.Role}}</p>
+
+</div>
+<hr>
+
+{{end}}
+
+{{end}}

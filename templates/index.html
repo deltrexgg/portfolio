@@ -4,23 +4,94 @@
 
 <head>
     <title>{{.Title}}</title>
-
-    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/style.css?v=1">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
 </head>
 
 
 <body>
 
+<div class="container">
+
 <h1>
     {{.PageHeader}}
 </h1>
 
-{{template "desk" .}}
 
+<h2 class="aboutme">
+    {{.About}}
+    <img class="catimg" src="/static/cat.png">
+</h2>
+
+<div class="description">
 <p>
-    Winner winner chicken dinner
+Hari Nandan is a software developer who builds practical, scalable applications with a strong focus on backend systems, modern web technologies, and cloud deployment.
+He enjoys solving real-world problems, designing efficient systems, and turning ideas into reliable software products.
+<br><br>
+~ ChatGPT
 </p>
+</div>
 
+<hr>
+
+{{template "contact" .}}
+
+<br>
+
+<button class="menuButton" onclick="showContent('work')">
+    My Works
+</button>
+
+<button class="menuButton" onclick="showContent('skills')">
+    Skills
+</button>
+
+<button class="menuButton" onclick="showContent('desk')">
+    Desk
+</button>
+
+<button class="menuButton" onclick="showContent('resume')">
+    Resume
+</button>
+
+
+<div id="content">
+    {{template "work" .}}
+</div>
+
+
+<div id="skills" style="display:none">
+    {{template "skills" .}}
+</div>
+
+
+<div id="desk" style="display:none">
+    {{template "desk" .}}
+</div>
+
+<div id="resume" style="display:none">
+    {{template "resume" .}}
+</div>
+
+<div id="work" style="display:none;">
+    {{template "work" .}}
+</div>
+
+<script>
+
+function showContent(page) {
+
+    document.getElementById("content").innerHTML =
+    document.getElementById(page).innerHTML;
+
+}
+
+function copyText(text) {
+    navigator.clipboard.writeText(text);
+    alert("Copied: " + text);
+}
+
+</script>
 
 </body>
 
