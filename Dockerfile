@@ -21,6 +21,6 @@ COPY templates ./templates
 COPY components ./components
 COPY static ./static
 
-EXPOSE 8080
+EXPOSE 8090
 
 CMD ["./portfolio"]
