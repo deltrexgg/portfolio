@@ -2,77 +2,124 @@ package main
 
 import (
 	"net/http"
+	"strconv"
 	"time"
 
 	"github.com/deltrexgg/profolio/functions"
 
 	"github.com/prometheus/client_golang/prometheus"
-	"github.com/prometheus/client_golang/prometheus/promauto"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 )
 
-var httpRequestsTotal = promauto.NewCounterVec(
-	prometheus.CounterOpts{
-		Name: "portfolio",
-		Help: "Total number of HTTP requests processed.",
-	},
-	[]string{"code", "method", "path"},
+var (
+	httpRequestsTotal = prometheus.NewCounterVec(
+		prometheus.CounterOpts{
+			Name: "myapp_http_requests_total",
+			Help: "Total number of HTTP requests.",
+		},
+		[]string{"method", "path", "code"},
+	)
+
+	httpRequestDuration = prometheus.NewHistogramVec(
+		prometheus.HistogramOpts{
+			Name:    "myapp_http_request_duration_seconds",
+			Help:    "HTTP request duration in seconds.",
+			Buckets: prometheus.DefBuckets,
+		},
+		[]string{"method", "path"},
+	)
+
+	httpResponseBytes = prometheus.NewCounterVec(
+		prometheus.CounterOpts{
+			Name: "myapp_http_response_bytes_total",
+			Help: "Total HTTP response bytes sent.",
+		},
+		[]string{"method", "path"},
+	)
+
+	httpRequestBytes = prometheus.NewCounterVec(
+		prometheus.CounterOpts{
+			Name: "myapp_http_request_bytes_total",
+			Help: "Total HTTP request bytes received.",
+		},
+		[]string{"method", "path"},
+	)
 )
 
-var httpRequestDuration = promauto.NewHistogramVec(
-	prometheus.HistogramOpts{
-		Name:    "myapp_http_request_duration_seconds",
-		Help:    "HTTP request duration in seconds.",
-		Buckets: prometheus.DefBuckets,
-	},
-	[]string{"method", "path"},
-)
+func init() {
+	prometheus.MustRegister(
+		httpRequestsTotal,
+		httpRequestDuration,
+		httpResponseBytes,
+		httpRequestBytes,
+	)
+}
 
 type responseWriter struct {
 	http.ResponseWriter
-	statusCode  int
-	bytesWritten int
+	status int
+	bytes  int
 }
 
-func (rw *responseWriter) WriteHeader(code int) {
-	rw.statusCode = code
-	rw.ResponseWriter.WriteHeader(code)
+func (w *responseWriter) WriteHeader(status int) {
+	w.status = status
+	w.ResponseWriter.WriteHeader(status)
 }
 
-func (rw *responseWriter) Write(b []byte) (int, error) {
-	if rw.statusCode == 0 {
-		rw.statusCode = http.StatusOK
+func (w *responseWriter) Write(b []byte) (int, error) {
+	if w.status == 0 {
+		w.status = http.StatusOK
 	}
 
-	n, err := rw.ResponseWriter.Write(b)
-	rw.bytesWritten += n
-
+	n, err := w.ResponseWriter.Write(b)
+	w.bytes += n
 	return n, err
 }
 
 func metricsMiddleware(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		// Don't count Prometheus scraping itself.
+		if r.URL.Path == "/metrics" {
+			next.ServeHTTP(w, r)
+			return
+		}
+
 		start := time.Now()
 
 		rw := &responseWriter{
 			ResponseWriter: w,
-			statusCode:     http.StatusOK,
 		}
 
 		next.ServeHTTP(rw, r)
 
 		duration := time.Since(start).Seconds()
 
+		path := r.URL.Path
+		method := r.Method
+		code := strconv.Itoa(rw.status)
+
 		httpRequestsTotal.WithLabelValues(
-			http.StatusText(rw.statusCode),
-			r.Method,
-			r.URL.Path,
+			method,
+			path,
+			code,
 		).Inc()
 
 		httpRequestDuration.WithLabelValues(
-			r.Method,
-			r.URL.Path,
+			method,
+			path,
 		).Observe(duration)
+
+		httpResponseBytes.WithLabelValues(
+			method,
+			path,
+		).Add(float64(rw.bytes))
+
+		if r.ContentLength > 0 {
+			httpRequestBytes.WithLabelValues(
+				method,
+				path,
+			).Add(float64(r.ContentLength))
+		}
 	})
 }
 
@@ -91,12 +138,12 @@ func main() {
 		),
 	)
 
-	// Prometheus metrics endpoint
+	// Prometheus endpoint
 	mux.Handle("/metrics", promhttp.Handler())
 
-	handler := metricsMiddleware(mux)
-
 	println("Server running :", port)
+
+	handler := metricsMiddleware(mux)
 
 	http.ListenAndServe(":"+port, handler)
 }
