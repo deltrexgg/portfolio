@@ -47,6 +47,19 @@ func HomePage(w http.ResponseWriter, r *http.Request) {
 	},
 
 	"MyWorks": []Work{
+	{
+		Title: "Custom AI Resume Builder",
+		Period: "Present",
+		Type: "Worked on Idea",
+
+		Description: "Open source custom resume builder for a specific job using AI https://customresume.duckdns.org. Align yor skills with job requred for ATS friendly",
+
+		Impact: "Freely used by multiple users",
+
+		Stack: "Javascript, Go, Docker",
+
+		Role: "Full Stack Development",
+	},
 
 	{
 		Title: "ServiceBill – SaaS Billing Platform",
