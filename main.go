@@ -108,7 +108,7 @@ func metricsMiddleware(next http.Handler) http.Handler {
 		method := r.Method
 		code := strconv.Itoa(rw.status)
 
-		if path == "/" {
+		if path == "/" && rw.status >= 200 && rw.status < 300 {
 			company := strings.ToLower(
 				strings.TrimSpace(
 					r.URL.Query().Get("companyName"),
