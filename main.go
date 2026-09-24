@@ -3,6 +3,7 @@ package main
 import (
 	"net/http"
 	"strconv"
+	"strings"
 	"time"
 
 	"github.com/deltrexgg/profolio/functions"
@@ -44,6 +45,14 @@ var (
 		},
 		[]string{"method", "path"},
 	)
+
+	resumeViews = prometheus.NewCounterVec(
+		prometheus.CounterOpts{
+			Name: "resume_views_total",
+			Help: "Total resume views by company.",
+		},
+		[]string{"company"},
+	)
 )
 
 func init() {
@@ -52,6 +61,7 @@ func init() {
 		httpRequestDuration,
 		httpResponseBytes,
 		httpRequestBytes,
+		resumeViews,
 	)
 }
 
@@ -97,6 +107,18 @@ func metricsMiddleware(next http.Handler) http.Handler {
 		path := r.URL.Path
 		method := r.Method
 		code := strconv.Itoa(rw.status)
+
+		if path == "/" {
+			company := strings.ToLower(
+				strings.TrimSpace(
+					r.URL.Query().Get("companyName"),
+				),
+			)
+
+			if company != "" {
+				resumeViews.WithLabelValues(company).Inc()
+			}
+		}
 
 		httpRequestsTotal.WithLabelValues(
 			method,
