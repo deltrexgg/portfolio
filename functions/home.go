@@ -52,7 +52,7 @@ func HomePage(w http.ResponseWriter, r *http.Request) {
 		Period: "Present",
 		Type: "Worked on Idea",
 
-		Description: "Open source custom resume builder for a specific job using AI https://customresume.duckdns.org. Align yor skills with job requred for ATS friendly",
+		Description: "Open source custom resume builder for a specific job using AI https://customresume.duckdns.org. Align yor skills with job requirements making it ATS friendly",
 
 		Impact: "Freely used by multiple users",
 
