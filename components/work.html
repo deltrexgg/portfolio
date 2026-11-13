@@ -1,26 +1,20 @@
 {{define "work"}}
-
-<h2>My Works</h2>
-
+<div class="projects-grid">
 {{range .MyWorks}}
-
-<div class="work-card">
-
-    <h3>{{.Title}}</h3>
-
-    <p><b>{{.Period}}</b> | <i>{{.Type}}</i></p>
-
-    <p>{{.Description}}</p>
-
-    <p><b>Impact / Usage:</b> {{.Impact}}</p>
-
-    <p><b>Tech Stack:</b> {{.Stack}}</p>
-
-    <p><b>Role:</b> {{.Role}}</p>
-
-</div>
-<hr>
-
+    <article class="project-card">
+        <div class="project-image">
+            <div class="image-placeholder"><span class="placeholder-index">PROJECT / VISUAL</span><span class="placeholder-name">{{.Title}}</span><span class="placeholder-hint">ADD YOUR SCREENSHOT</span></div>
+            <img src="{{.Image}}" alt="{{.Title}} screenshot" loading="lazy" onerror="this.style.display='none'">
+            <span class="project-period">{{.Period}}</span>
+        </div>
+        <div class="project-content">
+            <div class="project-type">{{.Type}}</div>
+            <h3>{{.Title}}</h3>
+            <p class="project-description">{{.Description}}</p>
+            <div class="project-impact"><span>IMPACT</span><p>{{.Impact}}</p></div>
+            <div class="project-details"><div><span>STACK</span><p>{{.Stack}}</p></div><div><span>ROLE</span><p>{{.Role}}</p></div></div>
+        </div>
+    </article>
 {{end}}
-
+</div>
 {{end}}
