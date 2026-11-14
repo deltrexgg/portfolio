@@ -9,6 +9,7 @@ Add project screenshots in this folder using these exact filenames:
 - `mathrubhumi-qikz.png` — Mathrubhumi Qikz
 - `namaste-service.png` — Namaste Service authorized service center platform
 - `opendentalcad.png` — OpenDentalCAD web-based dental software
+- `alverikx.png` — Alverikx corporate website and REV platform
 
 Recommended: PNG or WebP, landscape orientation (16:9), ideally 1400 × 800 px or larger.
 The portfolio already includes styled placeholders. When an image is added with its matching filename, it automatically appears in the relevant project card.
