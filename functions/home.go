@@ -93,6 +93,13 @@ func HomePage(w http.ResponseWriter, r *http.Request) {
 				Image: "/static/projects/alverikx.png",
 			},
 			{
+				Title: "Pioneer Travels — Bus Booking Web App", Period: "FREELANCE", Type: "TRAVEL · WEB APPLICATION",
+				Description: "A web-based bus booking application for Pioneer Travels.",
+				Impact: "Brings bus booking online through a dedicated web application.",
+				Stack: "Web application", Role: "Software development",
+				Image: "/static/projects/pioneer-travels.png",
+			},
+			{
 				Title: "Custom AI Resume Builder", Period: "OPEN PROJECT", Type: "AI · WEB APPLICATION",
 				Description: "An open-source custom resume builder that uses AI to tailor a resume to a specific job, align skills with job requirements and improve ATS compatibility. https://customresume.duckdns.org",
 				Impact: "Freely used by multiple users.",
