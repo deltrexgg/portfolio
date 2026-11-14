@@ -93,7 +93,7 @@ func HomePage(w http.ResponseWriter, r *http.Request) {
 				Image: "/static/projects/alverikx.png",
 			},
 			{
-				Title: "Pioneer Travels — Bus Booking Web App", Period: "FREELANCE", Type: "TRAVEL · WEB APPLICATION",
+				Title: "Pioneer Travels — Bus Booking Web App", Period: "PENTIUMLABS-PROJECT", Type: "TRAVEL · WEB APPLICATION",
 				Description: "A web-based bus booking application for Pioneer Travels.",
 				Impact: "Brings bus booking online through a dedicated web application.",
 				Stack: "Web application", Role: "Software development",
