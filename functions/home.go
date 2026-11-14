@@ -44,7 +44,7 @@ func HomePage(w http.ResponseWriter, r *http.Request) {
 		},
 		"MyWorks": []Work{
 			{
-				Title: "Mathrubhumi.com — Qikz", Period: "MAY 2024 — AUG 2024", Type: "INTERNSHIP · WEB APPLICATION",
+				Title: "Mathrubhumi.com — Qikz", Period: "MATHRUBHUMI-PROJECT", Type: "INTERNSHIP · WEB APPLICATION",
 				Description: "Worked on Qikz web app features and real-time engagement tools for a news platform.",
 				Impact: "Contributed production features and built a real-time election result widget used on the homepage.",
 				Stack: "Next.js, JavaScript, Web APIs", Role: "Intern developer",
@@ -63,6 +63,13 @@ func HomePage(w http.ResponseWriter, r *http.Request) {
 				Impact: "Used by authorized service centres to manage billing operations and customer subscriptions.",
 				Stack: "Go, Modular Monolith, PostgreSQL, Docker, Dokploy", Role: "Backend + deployment engineer · Team of 3",
 				Image: "/static/projects/servicebill.png",
+			},
+			{
+				Title: "Pioneer Travels — Bus Booking Web App", Period: "PENTIUMLABS-PROJECT", Type: "TRAVEL · WEB APPLICATION",
+				Description: "A web-based bus booking application for Pioneer Travels.",
+				Impact: "Brings bus booking online through a dedicated web application.",
+				Stack: "Web application", Role: "Software development",
+				Image: "/static/projects/pioneer-travels.png",
 			},
 			{
 				Title: "SalesGo — Delivery Management System", Period: "FREELANCE", Type: "BACKEND · INFRASTRUCTURE",
@@ -91,13 +98,6 @@ func HomePage(w http.ResponseWriter, r *http.Request) {
 				Impact: "Built a digital enrolment workflow for the REV initiative, including admin review and document management.",
 				Stack: "React, TypeScript, Express, Supabase, PostgreSQL, Drizzle ORM", Role: "Full-stack development",
 				Image: "/static/projects/alverikx.png",
-			},
-			{
-				Title: "Pioneer Travels — Bus Booking Web App", Period: "PENTIUMLABS-PROJECT", Type: "TRAVEL · WEB APPLICATION",
-				Description: "A web-based bus booking application for Pioneer Travels.",
-				Impact: "Brings bus booking online through a dedicated web application.",
-				Stack: "Web application", Role: "Software development",
-				Image: "/static/projects/pioneer-travels.png",
 			},
 			{
 				Title: "Custom AI Resume Builder", Period: "OPEN PROJECT", Type: "AI · WEB APPLICATION",
