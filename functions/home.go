@@ -78,6 +78,20 @@ func HomePage(w http.ResponseWriter, r *http.Request) {
 				Stack: "Next.js, JavaScript, Web APIs", Role: "Intern developer",
 				Image: "/static/projects/mathrubhumi-qikz.png",
 			},
+			{
+				Title: "Namaste Service — Authorized Service Center Platform", Period: "PROJECT", Type: "SERVICE MANAGEMENT · WEB PLATFORM",
+				Description: "A platform for authorized service centers, designed to support their service operations.",
+				Impact: "Brings authorized service center workflows onto a web platform.",
+				Stack: "Web platform", Role: "Software development",
+				Image: "/static/projects/namaste-service.png",
+			},
+			{
+				Title: "OpenDentalCAD", Period: "PROJECT", Type: "DENTAL · WEB APPLICATION",
+				Description: "A web-based dental software application.",
+				Impact: "Provides dental software workflows through a web-based application.",
+				Stack: "Web application", Role: "Software development",
+				Image: "/static/projects/opendentalcad.png",
+			},
 		},
 	}
 
