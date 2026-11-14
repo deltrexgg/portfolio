@@ -86,6 +86,13 @@ func HomePage(w http.ResponseWriter, r *http.Request) {
 				Image: "/static/projects/opendentalcad.png",
 			},
 			{
+				Title: "Alverikx — Corporate Website & REV Platform", Period: "FREELANCE", Type: "CORPORATE WEB · FULL-STACK DEVELOPMENT",
+				Description: "Developed the Alverikx corporate website and REV platform, including an opportunities and enrolment experience, vendor registration, document uploads and an admin dashboard.",
+				Impact: "Built a digital enrolment workflow for the REV initiative, including admin review and document management.",
+				Stack: "React, TypeScript, Express, Supabase, PostgreSQL, Drizzle ORM", Role: "Full-stack development",
+				Image: "/static/projects/alverikx.png",
+			},
+			{
 				Title: "Custom AI Resume Builder", Period: "OPEN PROJECT", Type: "AI · WEB APPLICATION",
 				Description: "An open-source custom resume builder that uses AI to tailor a resume to a specific job, align skills with job requirements and improve ATS compatibility. https://customresume.duckdns.org",
 				Impact: "Freely used by multiple users.",
