@@ -51,6 +51,13 @@ func HomePage(w http.ResponseWriter, r *http.Request) {
 				Image: "/static/projects/mathrubhumi-qikz.png",
 			},
 			{
+				Title: "Pioneer Travels — Bus Booking Web App", Period: "PENTIUMLABS-PROJECT", Type: "TRAVEL · WEB APPLICATION",
+				Description: "A web-based bus booking application for Pioneer Travels.",
+				Impact: "Brings bus booking online through a dedicated web application.",
+				Stack: "Web application", Role: "Software development",
+				Image: "/static/projects/pioneer-travels.png",
+			},
+			{
 				Title: "Namaste Service — Authorized Service Center Platform", Period: "PENTIUMLABS-PROJECT", Type: "SERVICE MANAGEMENT · WEB PLATFORM",
 				Description: "A platform for authorized service centers, designed to support their service operations.",
 				Impact: "Brings authorized service center workflows onto a web platform.",
@@ -63,13 +70,6 @@ func HomePage(w http.ResponseWriter, r *http.Request) {
 				Impact: "Used by authorized service centres to manage billing operations and customer subscriptions.",
 				Stack: "Go, Modular Monolith, PostgreSQL, Docker, Dokploy", Role: "Backend + deployment engineer · Team of 3",
 				Image: "/static/projects/servicebill.png",
-			},
-			{
-				Title: "Pioneer Travels — Bus Booking Web App", Period: "PENTIUMLABS-PROJECT", Type: "TRAVEL · WEB APPLICATION",
-				Description: "A web-based bus booking application for Pioneer Travels.",
-				Impact: "Brings bus booking online through a dedicated web application.",
-				Stack: "Web application", Role: "Software development",
-				Image: "/static/projects/pioneer-travels.png",
 			},
 			{
 				Title: "SalesGo — Delivery Management System", Period: "FREELANCE", Type: "BACKEND · INFRASTRUCTURE",
@@ -86,18 +86,18 @@ func HomePage(w http.ResponseWriter, r *http.Request) {
 				Image: "/static/projects/rkm-class-grading.png",
 			},
 			{
-				Title: "OpenDentalCAD", Period: "OPEN PROJECT", Type: "DENTAL · WEB APPLICATION",
-				Description: "A web-based dental software application.",
-				Impact: "Provides dental software workflows through a web-based application.",
-				Stack: "Web application", Role: "Software development",
-				Image: "/static/projects/opendentalcad.png",
-			},
-			{
 				Title: "Alverikx — Corporate Website & REV Platform", Period: "FREELANCE", Type: "CORPORATE WEB · FULL-STACK DEVELOPMENT",
 				Description: "Developed the Alverikx corporate website and REV platform, including an opportunities and enrolment experience, vendor registration, document uploads and an admin dashboard.",
 				Impact: "Built a digital enrolment workflow for the REV initiative, including admin review and document management.",
 				Stack: "React, TypeScript, Express, Supabase, PostgreSQL, Drizzle ORM", Role: "Full-stack development",
 				Image: "/static/projects/alverikx.png",
+			},
+			{
+				Title: "OpenDentalCAD", Period: "OPEN PROJECT", Type: "DENTAL · WEB APPLICATION",
+				Description: "A web-based dental software application.",
+				Impact: "Provides dental software workflows through a web-based application.",
+				Stack: "Web application", Role: "Software development",
+				Image: "/static/projects/opendentalcad.png",
 			},
 			{
 				Title: "Custom AI Resume Builder", Period: "OPEN PROJECT", Type: "AI · WEB APPLICATION",
